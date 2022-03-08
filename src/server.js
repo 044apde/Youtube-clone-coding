@@ -1,4 +1,4 @@
-import express, { Router } from "express";
+import express from "express";
 import morgan from "morgan";
 import globalRouter from "./router/globalRouter";
 import videoRouter from "./router/videoRouter";
