@@ -1,3 +1,16 @@
-# Youtube-clone-coding
- 
-### clone built using NodeJS, Express, Mongo and ES6 
+# WEtube Reloaded 
+
+/ -> HOME
+
+/join -> join
+/login
+/search
+
+/users/edit
+/usres/delete
+
+/videos/watch
+/videos/edit
+/videos/delete  
+/videos/comments
+/videos/comments/delete 
