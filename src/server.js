@@ -11,9 +11,12 @@ const logger = morgan("dev");
 
 app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
+
 app.disable("x-powerd-by"); // 불필요한 url요소를 제거한다  ~express 어쩌고 사용했다는 내용
 
-app.use(logger);
+app.use(logger); //middleware 
+app.use(express.urlencoded({extended: true}));
+
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
