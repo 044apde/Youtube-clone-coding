@@ -30,7 +30,6 @@ export const trending = (req, res) => {
 }
 
 export const watch = (req, res) => {
-  console.log(req.body);
   const { id } = req.params;
   const video = videos[id - 1]; 
   res.render("watch", { pageTitle: `Watching ${video.title}`, video:video});
