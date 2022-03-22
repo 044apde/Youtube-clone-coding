@@ -11,5 +11,5 @@ const videoSchema = new mongoose.Schema({
     },
 });
 
-const Video = mongoose.model("video", videoSchema); // "video"는 몽구스에게 db를 위한 model의 이름을 알려주는 것이다. 
+const Video = mongoose.model("Video", videoSchema); // "video"는 몽구스에게 db를 위한 model의 이름을 알려주는 것이다. 
 export default Video;
