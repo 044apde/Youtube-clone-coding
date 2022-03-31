@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const videoSchema = new mongoose.Schema({
     title: {type: String, required: true, trim: true, maxlength: 80},
-    description: {type: String, required: true, trim: true, minlength: 20}, 
+    description: {type: String, required: true, trim: true, minlength: 10}, 
     createdAt: {type: Date, required: true, default: Date.now, trim: true},
     hashtags: [{type: String, trim: true}],
     meta: {
@@ -11,5 +11,12 @@ const videoSchema = new mongoose.Schema({
       },
 });
 
+videoSchema.static('formatHashtags', function(hashtags) {
+  return hashtags
+    .split(",")
+    .map(word => word.startsWith("#") ? word : `#${word}`);
+});
+
 const Video = mongoose.model("Video", videoSchema); // "video"는 몽구스에게 db를 위한 model의 이름을 알려주는 것이다. 
+
 export default Video;
