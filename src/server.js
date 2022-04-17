@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 import morgan from "morgan"; //logger 
-import globalRouter from "./router/globalRouter";
+import rootRouter from "./router/rootRouter";
 import videoRouter from "./router/videoRouter";
 import userRouter from "./router/userRouter";
 
@@ -15,7 +15,7 @@ app.disable("x-powerd-by"); // 불필요한 url요소를 제거한다  ~express 
 app.use(logger); //middleware 
 app.use(express.urlencoded({extended: true}));
 
-app.use("/", globalRouter);
+app.use("/", rootRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
 
