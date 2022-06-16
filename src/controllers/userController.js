@@ -140,6 +140,7 @@ export const finishGithubLogin = async(req, res) => {
         }
         req.session.loggedIn = true;
         req.session.user = user;
+        console.log("session saved.");
         return res.redirect("/");
     } else {
         return res.redirect("/login");
@@ -147,8 +148,8 @@ export const finishGithubLogin = async(req, res) => {
 };
 
 export const edit = (req, res) => res.send("Edit User");
-export const logout = (req, res) => {
-    req.session.destroy();
+export const logout = async(req, res) => {
+    await req.session.destroy();
     return res.redirect("/");
 };
 export const see = (req, res) => res.send("See User");
