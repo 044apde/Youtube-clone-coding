@@ -152,10 +152,15 @@ export const getEdit = (req, res) => {
 export const postEdit = async(req, res) => {
     const {
         session: {
-            user: { _id },
+            user: { _id, socialOnly },
         },
         body: { name, email, username, location },
     } = req;
+    if (socialOnly) {
+        return res.render("edit-profile", {
+            errorMessage: "social account can't change email",
+        });
+    }
     const updatedUser = await User.findByIdAndUpdate(
         _id, {
             name: name,
