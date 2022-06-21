@@ -140,6 +140,9 @@ export const finishGithubLogin = async(req, res) => {
             req.session.loggedIn = true;
             console.log("session saved.");
         }
+        req.session.user = user;
+        req.session.loggedIn = true;
+        console.log("session saved.");
         return res.redirect("/");
     } else {
         return res.redirect("/login");
